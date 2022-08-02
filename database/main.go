@@ -19,8 +19,7 @@ func main() {
 
 	var f models.Customers
 	_ = config.DB.Preload(clause.Associations).Find(&f)
-	// Preload metodunu şu anda doğru kullanıyorum
-	fmt.Println(f.User)
+	fmt.Println(f.People)
 }
 
 type Users struct {

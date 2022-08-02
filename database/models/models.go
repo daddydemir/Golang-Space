@@ -10,5 +10,5 @@ type Users struct {
 type Customers struct {
 	Userid int
 	Phone  string
-	User   Users
+	People Users `gorm:"foreignKey:userid;references:id"`
 }
