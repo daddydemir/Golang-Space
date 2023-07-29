@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket</title>
+</head>
+<body>
+<center>
+    <h2> WebSocket Test <a href="https://github.com/daddydemir" target="_blank">@daddydemir</a></h2>
+</center>
+
+<center>
+    <form>
+        <input type="text" id="m-id">
+        <input type="button" onclick="sendMessage()" value="send">
+    </form>
+</center>
+
+
+<script>
+    let socket = new WebSocket('ws://localhost:8080/socket');
+
+    socket.onopen = () => {
+        console.info('connection is opened.');
+    }
+
+    socket.onclose = (event) => {
+        console.info('connection is closed.', event);
+    }
+
+    socket.onerror = (error) => {
+        console.warn('socket err: ', error)
+    }
+
+    socket.onmessage = (message) => {
+        console.log(message.data);
+        alert(message.data);
+    }
+
+    function sendMessage() {
+        let e = document.getElementById('m-id');
+        socket.send(e.value);
+        e.value = '';
+    }
+</script>
+</body>
+</html>
