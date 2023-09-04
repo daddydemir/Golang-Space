@@ -1,6 +1,16 @@
 ## WebSocket
 ----
 
+#### kodu çalıştırmak için
+
+````shell
+
+git clone https://github.com/daddydemir/Golang-Space.git
+cd WebSockets
+go mod tidy
+go run cmm/main.go
+
+````
 
 
 

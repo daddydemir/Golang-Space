@@ -35,7 +35,11 @@ func reader(conn *websocket.Conn) {
 }
 
 func socket(w http.ResponseWriter, r *http.Request) {
-	ws, _ = upgrader.Upgrade(w, r, nil)
+	var err error
+	ws, err = upgrader.Upgrade(w, r, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 	/*
 		err := ws.WriteMessage(1, []byte("Hello World!"))
 		if err != nil {
@@ -47,13 +51,22 @@ func socket(w http.ResponseWriter, r *http.Request) {
 }
 
 func reduceStock(w http.ResponseWriter, r *http.Request) {
-
+	var err error
 	if stock <= 0 {
-		_ = ws.WriteMessage(websocket.TextMessage, []byte("the stock is empty."))
-		_ = json.NewEncoder(w).Encode("the stock already empty.")
+		err = ws.WriteMessage(websocket.TextMessage, []byte("the stock is empty."))
+		if err != nil {
+			log.Fatal(err)
+		}
+		err = json.NewEncoder(w).Encode("the stock already empty.")
+		if err != nil {
+			log.Fatal(err)
+		}
 	} else {
 		stock = stock - 1
-		_ = json.NewEncoder(w).Encode("the stock has been reduced by one.")
+		err = json.NewEncoder(w).Encode("the stock has been reduced by one.")
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 }
 
