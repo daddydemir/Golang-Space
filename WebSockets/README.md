@@ -6,9 +6,9 @@
 ````shell
 
 git clone https://github.com/daddydemir/Golang-Space.git
-cd WebSockets
+cd Golang-Space/WebSockets
 go mod tidy
-go run cmm/main.go
+go run cmd/main.go
 
 ````
 
