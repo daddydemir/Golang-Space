@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package proto;
+option go_package = ".;proto";
+
+service UserService {
+
+    rpc getUser (UserRequest) returns (UserReply);
+
+    rpc getUserStreamReply(UserRequest) returns (stream UserReply);
+
+    rpc getUserStreamRequest(stream UserRequest) returns (UserReply);
+
+    rpc getUserStream(stream UserRequest) returns (stream UserReply);
+}
+
+
+message UserRequest {
+    string name = 1;
+}
+
+message UserReply {
+    string name = 1;
+    string surname = 2;
+    string mail = 3;
+}
