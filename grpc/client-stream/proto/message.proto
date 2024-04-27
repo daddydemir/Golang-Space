@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option go_package = "client-stream/proto/message";
+
+message Request {
+  bytes chunk_data = 1;
+}
+
+message Response {
+  string message = 1;
+}
