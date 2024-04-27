@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option go_package = "unary/proto/service";
+
+import "message.proto";
+
+service UnaryService {
+  rpc GetProduct(Request) returns (Response);
+}
