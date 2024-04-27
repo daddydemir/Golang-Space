@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option go_package = "bidirectional-stream/proto/service";
+
+import "message.proto";
+
+service BidirectionalStream {
+  rpc StartChat(stream Request) returns (stream Response);
+}

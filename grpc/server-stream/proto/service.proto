@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option go_package = "server-stream/proto/service";
+
+import "message.proto";
+
+service ServerService {
+  rpc GetVideoStream(Request) returns (stream Response);
+}

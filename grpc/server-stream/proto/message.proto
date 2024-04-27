@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option go_package = "server-stream/proto/message";
+
+message Request {
+  string video_id = 1;
+}
+
+message Response {
+  bytes chunk_data = 1;
+}

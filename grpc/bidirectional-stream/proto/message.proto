@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option go_package = "bidirectional-stream/proto/message";
+
+message Request {
+  string message = 1;
+}
+
+message Response {
+  string message = 2;
+}
