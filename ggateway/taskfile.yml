@@ -1,0 +1,1 @@
+version: 3tasks:  compile:    cmds:      - cd proto && protoc --go_out=../protogen/golang --go_opt=paths=source_relative --go-grpc_out=../protogen/golang --go-grpc_opt=paths=source_relative ./user/*.proto#      - cd proto && protoc --go_out=../protogen/golang --go_opt=paths=source_relative --go_grpc_out=../protogen/golang --go-grpc_opt=paths=source_relative .\users\*.proto

@@ -1,0 +1,1 @@
+syntax = "proto3";option go_package = "ggateway/protogen/golang/users";import "user/user_model.proto";service Users {  rpc GetUser(UserId) returns (User);  rpc GetAllUsers(Empty) returns (UserCollection);  rpc AddUser(User) returns (Empty);  rpc UpdateUser(UserWithId) returns (User);  rpc DeleteUser(UserId) returns (Empty);}
