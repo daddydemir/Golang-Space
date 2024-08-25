@@ -1,0 +1,15 @@
+version: '3'
+
+tasks:
+  build:
+    cmds:
+      - goreleaser release --snapshot --clean
+
+  deploy:
+    cmds:
+      - scp ./dist/ping_linux_amd64_v1/ping root@sunucu1:/dmr/releases/ping
+      - ssh root@sunucu1 "./dmr/releases/ping/after_deploy.sh"
+
+  run:
+    cmds:
+      - go run ./cmd/.
